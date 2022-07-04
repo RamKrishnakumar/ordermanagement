@@ -1,0 +1,65 @@
+<!-- <p>list-orders component works!</p> -->
+<div class="content">
+  <div class="row">
+    <div class="col-sm-6 col-6">
+      <div class="select-date-div">
+        <div><h4 class="page-title">Orders List</h4></div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-6 text-right m-b-30">
+      <!-- <a (click)="routeAddPatient()" class="btn btn btn-primary btn-rounded float-right">
+        <fa-icon icon="plus"></fa-icon>Existing
+      </a> -->
+      <a class="btn btn btn-primary btn-rounded float-right" [routerLink]="['/orders/addorder']">
+        New Order
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-stripped custom-table">
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Order Due Date</th>
+              <th>Cusotmer Name</th>
+              <th>Customer Address</th>
+              <th>Customer Phone</th>
+              <th>Order Total</th>
+              <th class="text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of ordersList">
+              <td>{{item.orderNumber}}</td>
+              <td>{{item.orderDueDate}}</td>
+              <td>{{item.customerName}}</td>
+              <td>{{item.customerAddress}}</td>
+              <td>{{item.customerPhone}}</td>
+              <td>{{item.orderTotalAmt}}</td>
+              <td class="text-right">
+                <div class="dropdown dropdown-action">
+                  <a class="action-icon" data-toggle="dropdown" aria-expanded="false"><fa-icon icon="ellipsis-v"></fa-icon></a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" [routerLink]="['/orders/editorder']" [state]="item">
+                      Edit
+                    </a>
+                    <a class="dropdown-item" data-toggle="modal" (click)="confirmDelete(item._id)">
+                       Delete
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- <div align=center *ngIf="appointmentsList.length == 0">
+          ----------No Record Found-----------
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</div>

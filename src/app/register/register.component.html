@@ -1,0 +1,32 @@
+<!-- <p>register works!</p> -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-5">
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" placeholder="Enter email" formControlName="email"
+          [ngClass]="{'is-invalid':this.registerForm.get('email')?.errors && (this.registerForm.get('email')?.dirty || this.registerForm.get('email')?.touched) }">
+        </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" placeholder="Password" formControlName="password"
+            [ngClass]="{'is-invalid':this.registerForm.get('password')?.errors && (this.registerForm.get('password')?.dirty || this.registerForm.get('password')?.touched)}" >
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmpassword"
+            [ngClass]="{'is-invalid': this.registerForm.get('confirmpassword')?.errors && (this.registerForm.get('confirmpassword')?.dirty || this.registerForm.get('confirmpassword')?.touched)}" >
+          </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
